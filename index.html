@@ -75,76 +75,10 @@
     <div id="cursor-glow" class="fixed w-96 h-96 -translate-x-1/2 -translate-y-1/2 bg-indigo-500/10 dark:bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none z-40 transition-transform duration-75 ease-out max-md:hidden"></div>
 
     <nav class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300 py-4 px-6 md:px-12 flex justify-between items-center">
-        <a href="#home" class="flex items-center space-x-2">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                <i class="fa-solid fa-brain text-white text-lg"></i>
-            </div>
-            <span class="text-xl font-extrabold tracking-tight dark:text-white text-slate-900">Geremew <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">AI Studio</span></span>
-        </a>
-
-        <div class="hidden xl:flex items-center space-x-6 text-sm font-medium dark:text-slate-300 text-slate-600">
-            <a href="#home" class="hover:text-indigo-500 transition-colors">Home</a>
-            <a href="#about" class="hover:text-indigo-500 transition-colors">About</a>
-            <a href="#services" class="hover:text-indigo-500 transition-colors">Services</a>
-            <a href="#portfolio" class="hover:text-indigo-500 transition-colors">Portfolio</a>
-            <a href="https://www.youtube.com/@docmentary-o6" class="hover:text-indigo-500 transition-colors">YouTube</a>
-            <a href="#store" class="hover:text-indigo-500 transition-colors">Store</a>
-            <a href="#blog" class="hover:text-indigo-500 transition-colors">Blog</a>
-            <a href="#pricing" class="hover:text-indigo-500 transition-colors">Pricing</a>
-            <a href="#contact" class="hover:text-indigo-500 transition-colors">Contact</a>
-        </div>
-
-        <div class="flex items-center space-x-4">
-            <button id="theme-toggle" class="p-2.5 rounded-xl border border-slate-800 dark:border-slate-800 light:border-slate-200 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-100 text-slate-400 light:text-slate-600 transition-colors" aria-label="Toggle Theme">
-                <i id="theme-icon" class="fa-solid fa-moon"></i>
-            </button>
-            <a href="#contact" class="hidden md:inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-2.5 px-5 rounded-xl transition-all transform hover:-translate-y-0.5 shadow-lg shadow-indigo-500/20">
-                <span>Hire Me</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-            </a>
-            <button id="menu-toggle" class="xl:hidden p-2.5 rounded-xl text-slate-400 light:text-slate-600" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
-        </div>
-    </nav>
-
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-6 text-2xl font-bold translate-x-full transition-transform duration-300 xl:hidden">
-        <button id="menu-close" class="absolute top-6 right-6 text-slate-400"><i class="fa-solid fa-xmark text-2xl"></i></button>
-        <a href="#home" class="mobile-link hover:text-indigo-400">Home</a>
-        <a href="#about" class="mobile-link hover:text-indigo-400">About</a>
-        <a href="#services" class="mobile-link hover:text-indigo-400">Services</a>
-        <a href="#portfolio" class="mobile-link hover:text-indigo-400">Portfolio</a>
-        <a href="https://www.youtube.com/@docmentary-o6" class="mobile-link hover:text-indigo-400">YouTube</a>
-        <a href="#store" class="mobile-link hover:text-indigo-400">Store</a>
-        <a href="#blog" class="mobile-link hover:text-indigo-400">Blog</a>
-        <a href="#contact" class="mobile-link hover:text-indigo-400">Contact</a>
-    </div>
-
-    <section id="home" class="relative pt-36 pb-24 px-6 md:px-12 max-w-7xl mx-auto flex flex-col items-center text-center min-h-screen justify-center">
-        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-purple-600/10 to-indigo-600/10 blur-[120px] rounded-full pointer-events-none"></div>
-        
-        <div class="inline-flex items-center space-x-2 glass px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-indigo-400 mb-6 border border-indigo-500/20">
-            <span class="flex h-2 w-2 relative">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-            </span>
-            <span>WELCOME TO THE FUTURE OF CREATION</span>
-        </div>
-
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl leading-tight dark:text-white text-slate-900">
-            Helping Beginners Learn AI, <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-400 to-blue-500">Build Online Income</span> & Grow
-        </h1>
-        
-        <p class="mt-6 text-lg md:text-xl text-slate-400 dark:text-slate-400 light:text-slate-600 max-w-3xl leading-relaxed">
-            Empowering modern creators and businesses with practical AI engineering strategies, insightful tutorials, structured resources, and comprehensive automated systems.
-        </p>
-
-        <div class="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-            <a href="https://www.youtube.com/@docmentary-o6" class="relative overflow-hidden inline-flex items-center justify-center space-x-2 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg shadow-red-600/20 transition-all transform hover:-translate-y-1">
-                <i class="fa-brands fa-youtube text-lg"></i>
-                <span>Watch on YouTube</span>
-            </a>
+        <a href="https://www.youtube.com/@docmentary-o6" class="glow-btn relative inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-medium shadow-lg hover:shadow-red-500/20 transition-all duration-300">
+    <i class="fa-brands fa-youtube text-lg"></i>
+    <span>Watch on YouTube</span>
+</a>
             <a href="#contact" class="glow-btn relative inline-flex items-center justify-center space-x-2 glass text-white dark:text-white light:text-slate-900 font-bold py-4 px-8 rounded-xl transition-all transform hover:-translate-y-1">
                 <i class="fa-solid fa-briefcase text-sm text-indigo-400"></i>
                 <span>Hire Me Portfolio</span>
