@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +58,9 @@
             padding: 20px;
             border-radius: 12px;
             border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .service-card h3 {
             color: #f8fafc;
@@ -69,7 +71,20 @@
             color: #94a3b8;
             font-size: 0.95rem;
             line-height: 1.5;
-            margin-bottom: 0;
+            margin-bottom: 15px;
+        }
+        .card-link {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+        }
+        .card-link:hover {
+            text-decoration: underline;
+            color: #7dd3fc;
         }
         .btn {
             display: inline-block;
@@ -90,13 +105,13 @@
 <body>
     <div class="container">
         <h1>Geremew AI Studio</h1>
-        <p class="subtitle">Advanced Development & Digital Asset Creation</p>
+        <p class="subtitle">Advanced Development & Digital Asset Hub</p>
         
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>Automation & Bots</h3>
-                <p>Custom mobile automation scripts, environment configurations, and interactive interface tools designed for speed.</p>
+                <p>Custom mobile automation scripts, environment configurations, and interactive tools designed for speed.</p>
             </div>
             <div class="service-card">
                 <h3>Digital Assets</h3>
@@ -108,8 +123,32 @@
             </div>
         </div>
 
+        <h2>My Platforms & Portfolios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>YouTube Channels</h3>
+                <p>Explore production video content, documentaries, and automated technology showcases.</p>
+                <a href="#" class="card-link">Visit Channels &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Telegram Channel</h3>
+                <p>Join the main workspace channel for real-time script updates, tool testing, and technical announcements.</p>
+                <a href="#" class="card-link">Join Channel &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Digital E-Books</h3>
+                <p>Browse detailed step-by-step guides, technical instruction books, and digital culinary publications.</p>
+                <a href="#" class="card-link">View Books &rarr;</a>
+            </div>
+            <div class="service-card">
+                <h3>Online Store</h3>
+                <p>Get instant access to live automated scripts, premium assets, templates, and digital products.</p>
+                <a href="#" class="card-link">Enter Shop &rarr;</a>
+            </div>
+        </div>
+
         <h2>Let's Work Together</h2>
-        <p class="subtitle">Have a professional project or tool idea in mind? Let's build it right.</p>
+        <p class="subtitle">Have a professional project or custom tool idea in mind? Let's build it right.</p>
         <a href="#" class="btn">Get In Touch</a>
     </div>
 </body>
