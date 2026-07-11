@@ -46,16 +46,13 @@
             margin-bottom: 40px;
         }
 
-        .avatar {
-            width: 40px;
-            height: 40px;
-            background-color: #e2e8f0;
+        .avatar-img {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--text-dark);
+            object-fit: cover;
+            border: 1px solid var(--border);
+            background-color: #ebdcd0;
         }
 
         .profile-info h3 {
@@ -86,6 +83,7 @@
             font-weight: 500;
             border-radius: 8px;
             transition: background 0.2s;
+            cursor: pointer;
         }
 
         .nav-item:hover, .nav-item.active {
@@ -107,6 +105,14 @@
             flex: 1;
             padding: 60px 40px 60px 20px;
             max-width: 1000px;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
         }
 
         .hero-section {
@@ -135,70 +141,7 @@
             font-weight: 400;
         }
 
-        /* Newsletter Input Bar */
-        .subscribe-box {
-            display: flex;
-            gap: 12px;
-            max-width: 450px;
-            margin-bottom: 8px;
-        }
-
-        .subscribe-box input {
-            flex: 1;
-            padding: 14px 18px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background-color: var(--bg-card);
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .subscribe-box button {
-            padding: 14px 28px;
-            background-color: var(--accent);
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .subscribe-box button:hover {
-            opacity: 0.9;
-        }
-
-        .notice-text {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Filter Chips */
-        .filter-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 35px;
-            margin-top: 50px;
-        }
-
-        .chip {
-            padding: 6px 14px;
-            background-color: #ebdcd0;
-            border: none;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-
-        .chip.active {
-            background-color: var(--accent);
-            color: #ffffff;
-        }
-
-        /* Dashboard Media Grid */
+        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -255,6 +198,54 @@
             line-height: 1.5;
         }
 
+        /* Form Styling */
+        .edit-form-container {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            background-color: var(--bg-main);
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .save-btn:hover {
+            opacity: 0.9;
+        }
+
         /* Responsive UI Adjustments */
         @media (max-width: 850px) {
             body {
@@ -280,76 +271,175 @@
 </head>
 <body>
 
-    <!-- Left Navigation Sidebar -->
     <aside>
         <div class="profile-sec">
-            <div class="avatar">G</div>
+            <img id="side-avatar" src="profile.jpg" alt="Geremew" class="avatar-img" onerror="this.src='https://via.placeholder.com/45/ebdcd0/111111?text=G'">
             <div class="profile-info">
-                <h3>Geremew</h3>
-                <p>Digital Automation Hub</p>
+                <h3 id="side-name">Geremew</h3>
+                <p id="side-title">Digital Automation Hub</p>
             </div>
         </div>
 
         <div class="nav-links">
-            <a href="#" class="nav-item active">🏠 Home</a>
+            <div class="nav-item active" onclick="switchPage('home')">🏠 Home</div>
+            <div class="nav-item" onclick="checkAdminAccess()">⚙️ Edit Web Profile</div>
             
             <div class="nav-section-title">Platforms</div>
-            <a href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="nav-item">📺 YouTube Channel</a>
-            <a href="https://t.me/geremewh" target="_blank" class="nav-item">💬 Telegram Channel</a>
-            
-            <div class="nav-section-title">Products</div>
-            <a href="#" class="nav-item">📚 Digital E-Books</a>
-            <a href="#" class="nav-item">🛒 Online Store</a>
+            <a id="link-yt" href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="nav-item">📺 YouTube Channel</a>
+            <a id="link-tg" href="https://t.me/geremewh" target="_blank" class="nav-item">💬 Telegram Channel</a>
         </div>
     </aside>
 
-    <!-- Main Workspace Content -->
     <main>
-        <div class="hero-section">
-            <div class="hero-tag">From the studio of Geremew</div>
-            <h1>Ideas and insights for the <em>modern</em> creator.</h1>
-            
-            <div class="subscribe-box">
-                <input type="email" placeholder="Your email address...">
-                <button type="button">Subscribe</button>
+        
+        <div id="page-home" class="page-content active">
+            <div class="hero-section">
+                <div class="hero-tag">From the studio of <span id="hero-name-label">Geremew</span></div>
+                <h1>Ideas and insights for the <em>modern</em> creator.</h1>
             </div>
-            <div class="notice-text">No spam. Unsubscribe at any time.</div>
+
+            <div class="filter-container">
+                <button class="chip active">All Projects</button>
+            </div>
+
+            <div class="content-grid">
+                <a id="card-yt" href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="grid-card">
+                    <div class="card-preview">YouTube Channel</div>
+                    <div class="card-body">
+                        <h4>Production Videography</h4>
+                        <p>Detailed technical documentaries, hospital tech applications, and tailored voiceover creation.</p>
+                    </div>
+                </a>
+
+                <a id="card-tg" href="https://t.me/geremewh" target="_blank" class="grid-card">
+                    <div class="card-preview" style="background-color: #e2e8f0;">Telegram Channel</div>
+                    <div class="card-body">
+                        <h4>Scripts & Live Automation</h4>
+                        <p>Real-time ecosystem updates, active tool scripts, and centralized developer communication.</p>
+                    </div>
+                </a>
+            </div>
         </div>
 
-        <div class="filter-container">
-            <button class="chip active">All Projects</button>
-            <button class="chip">Automation</button>
-            <button class="chip">Design</button>
-            <button class="chip">E-Books</button>
+        <div id="page-edit" class="page-content">
+            <div class="hero-section">
+                <h1>Edit Profile Web Layout</h1>
+                <p style="color: var(--text-muted);">Secure admin panel. Changes sync to your view instantly.</p>
+            </div>
+
+            <div class="edit-form-container">
+                <form id="profileForm" onsubmit="saveProfileChanges(event)">
+                    <div class="form-group">
+                        <label>Profile Photo URL</label>
+                        <input type="text" id="input-photo" placeholder="Paste image link or use profile.jpg">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Studio Name / Studio Title</label>
+                        <input type="text" id="input-name" value="Geremew">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Profile Subtitle</label>
+                        <input type="text" id="input-title" value="Digital Automation Hub">
+                    </div>
+
+                    <div class="form-group">
+                        <label>YouTube Channel Link</label>
+                        <input type="url" id="input-yt" value="https://www.youtube.com/@docmentary-o6r">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telegram Handle Link</label>
+                        <input type="url" id="input-tg" value="https://t.me/geremewh">
+                    </div>
+
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </div>
         </div>
 
-        <!-- Portfolio Cards Grid -->
-        <div class="content-grid">
-            <a href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="grid-card">
-                <div class="card-preview" style="background-color: #ebdcd0;">YouTube Channel</div>
-                <div class="card-body">
-                    <h4>Production Videography</h4>
-                    <p>Detailed technical documentaries, hospital tech applications, and tailored voiceover creation.</p>
-                </div>
-            </a>
-
-            <a href="https://t.me/geremewh" target="_blank" class="grid-card">
-                <div class="card-preview" style="background-color: #e2e8f0;">Telegram Channel</div>
-                <div class="card-body">
-                    <h4>Scripts & Live Automation</h4>
-                    <p>Real-time ecosystem updates, active tool scripts, and centralized developer communication.</p>
-                </div>
-            </a>
-
-            <a href="#" class="grid-card">
-                <div class="card-preview" style="background-color: #e2ede8;">Digital Assets</div>
-                <div class="card-body">
-                    <h4>E-Books & Publications</h4>
-                    <p>Comprehensive step-by-step instruction assets, textbook structures, and technical guide files.</p>
-                </div>
-            </a>
-        </div>
     </main>
 
+    <script>
+        // Set your private profile password here
+        const ADMIN_PASSWORD = "1234";
+
+        function checkAdminAccess() {
+            const passwordAttempt = prompt("Enter your Admin Security Pin to edit profile:");
+            if (passwordAttempt === ADMIN_PASSWORD) {
+                switchPage('edit');
+            } else {
+                alert("Access Denied! Incorrect PIN.");
+            }
+        }
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            document.getElementById('page-' + pageId).classList.add('active');
+            
+            if(pageId === 'home') {
+                document.querySelectorAll('.nav-item')[0].classList.add('active');
+            } else if(pageId === 'edit') {
+                document.querySelectorAll('.nav-item')[1].classList.add('active');
+            }
+        }
+
+        window.onload = function() {
+            if(localStorage.getItem('studioName')) {
+                document.getElementById('side-name').innerText = localStorage.getItem('studioName');
+                document.getElementById('hero-name-label').innerText = localStorage.getItem('studioName');
+                document.getElementById('input-name').value = localStorage.getItem('studioName');
+            }
+            if(localStorage.getItem('studioTitle')) {
+                document.getElementById('side-title').innerText = localStorage.getItem('studioTitle');
+                document.getElementById('input-title').value = localStorage.getItem('studioTitle');
+            }
+            if(localStorage.getItem('studioPhoto')) {
+                document.getElementById('side-avatar').src = localStorage.getItem('studioPhoto');
+                document.getElementById('input-photo').value = localStorage.getItem('studioPhoto');
+            }
+            if(localStorage.getItem('studioYT')) {
+                document.getElementById('link-yt').href = localStorage.getItem('studioYT');
+                document.getElementById('card-yt').href = localStorage.getItem('studioYT');
+                document.getElementById('input-yt').value = localStorage.getItem('studioYT');
+            }
+            if(localStorage.getItem('studioTG')) {
+                document.getElementById('link-tg').href = localStorage.getItem('studioTG');
+                document.getElementById('card-tg').href = localStorage.getItem('studioTG');
+                document.getElementById('input-tg').value = localStorage.getItem('studioTG');
+            }
+        }
+
+        function saveProfileChanges(e) {
+            e.preventDefault();
+            
+            const nameVal = document.getElementById('input-name').value;
+            const titleVal = document.getElementById('input-title').value;
+            const photoVal = document.getElementById('input-photo').value;
+            const ytVal = document.getElementById('input-yt').value;
+            const tgVal = document.getElementById('input-tg').value;
+
+            localStorage.setItem('studioName', nameVal);
+            localStorage.setItem('studioTitle', titleVal);
+            localStorage.setItem('studioPhoto', photoVal);
+            localStorage.setItem('studioYT', ytVal);
+            localStorage.setItem('studioTG', tgVal);
+
+            document.getElementById('side-name').innerText = nameVal;
+            document.getElementById('hero-name-label').innerText = nameVal;
+            document.getElementById('side-title').innerText = titleVal;
+            if(photoVal) document.getElementById('side-avatar').src = photoVal;
+            document.getElementById('link-yt').href = ytVal;
+            document.getElementById('card-yt').href = ytVal;
+            document.getElementById('link-tg').href = tgVal;
+            document.getElementById('card-tg').href = tgVal;
+
+            alert('Configuration updated securely!');
+            switchPage('home');
+        }
+    </script>
 </body>
 </html>
