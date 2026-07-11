@@ -5,151 +5,351 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geremew AI Studio</title>
     <style>
+        :root {
+            --bg-main: #f4f3ef;
+            --bg-card: #ffffff;
+            --text-dark: #111111;
+            --text-muted: #666666;
+            --accent: #000000;
+            --border: #e5e5e0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             min-height: 100vh;
         }
-        .container {
-            max-width: 800px;
-            width: 90%;
-            padding: 40px 20px;
-            margin: 40px auto;
-            background: #1e293b;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
-            text-align: center;
-        }
-        h1 {
-            color: #38bdf8;
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        .subtitle {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        h2 {
-            color: #38bdf8;
-            font-size: 1.8rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #334155;
-            padding-bottom: 10px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-            text-align: left;
-        }
-        .service-card {
-            background: #0f172a;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #334155;
+
+        /* Sidebar Navigation Layout */
+        aside {
+            width: 260px;
+            background-color: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
         }
-        .service-card h3 {
-            color: #f8fafc;
-            margin-top: 0;
-            font-size: 1.2rem;
-        }
-        .service-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-        .card-link {
-            color: #38bdf8;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-top: auto;
-            display: inline-flex;
+
+        .profile-sec {
+            display: flex;
             align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
         }
-        .card-link:hover {
-            text-decoration: underline;
-            color: #7dd3fc;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 30px;
-            background-color: #38bdf8;
-            color: #0f172a;
-            text-decoration: none;
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            border-radius: 8px;
-            transition: background 0.3s ease;
+            color: var(--text-dark);
         }
-        .btn:hover {
-            background-color: #7dd3fc;
+
+        .profile-info h3 {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .profile-info p {
+            margin: 2px 0 0 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: #f0ede6;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin: 25px 0 10px 14px;
+        }
+
+        /* Main Content Workspace */
+        main {
+            margin-left: 300px;
+            flex: 1;
+            padding: 60px 40px 60px 20px;
+            max-width: 1000px;
+        }
+
+        .hero-section {
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin: 0 0 24px 0;
+            line-height: 1.1;
+        }
+
+        h1 em {
+            font-style: italic;
+            font-family: Georgia, serif;
+            font-weight: 400;
+        }
+
+        /* Newsletter Input Bar */
+        .subscribe-box {
+            display: flex;
+            gap: 12px;
+            max-width: 450px;
+            margin-bottom: 8px;
+        }
+
+        .subscribe-box input {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--bg-card);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .subscribe-box button {
+            padding: 14px 28px;
+            background-color: var(--accent);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .subscribe-box button:hover {
+            opacity: 0.9;
+        }
+
+        .notice-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Filter Chips */
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 35px;
+            margin-top: 50px;
+        }
+
+        .chip {
+            padding: 6px 14px;
+            background-color: #ebdcd0;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .chip.active {
+            background-color: var(--accent);
+            color: #ffffff;
+        }
+
+        /* Dashboard Media Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+        }
+
+        .card-preview {
+            height: 180px;
+            background-color: #ebdcd0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #7a6e67;
+            letter-spacing: 0.05em;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-body h4 {
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card-body p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Responsive UI Adjustments */
+        @media (max-width: 850px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                position: relative;
+                box-sizing: border-box;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+            }
+            main {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Geremew AI Studio</h1>
-        <p class="subtitle">Advanced Development & Digital Asset Hub</p>
-        
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Automation & Bots</h3>
-                <p>Custom mobile automation scripts, environment configurations, and interactive tools designed for speed.</p>
-            </div>
-            <div class="service-card">
-                <h3>Digital Assets</h3>
-                <p>High-end layout templates, graphic mockups, full text book formatting, and visual publication designs.</p>
-            </div>
-            <div class="service-card">
-                <h3>Web Architecture</h3>
-                <p>Clean, modern, lightweight standalone web interfaces built securely from the ground up.</p>
+
+    <!-- Left Navigation Sidebar -->
+    <aside>
+        <div class="profile-sec">
+            <div class="avatar">G</div>
+            <div class="profile-info">
+                <h3>Geremew</h3>
+                <p>Digital Automation Hub</p>
             </div>
         </div>
 
-        <h2>My Platforms & Portfolios</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>YouTube Channel</h3>
-                <p>Explore production video content, documentaries, and automated technology showcases.</p>
-                <a href="https://www.youtube.com/@docmentary-o6r" class="card-link" target="_blank">Visit Channel &rarr;</a>
+        <div class="nav-links">
+            <a href="#" class="nav-item active">🏠 Home</a>
+            
+            <div class="nav-section-title">Platforms</div>
+            <a href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="nav-item">📺 YouTube Channel</a>
+            <a href="https://t.me/geremewh" target="_blank" class="nav-item">💬 Telegram Channel</a>
+            
+            <div class="nav-section-title">Products</div>
+            <a href="#" class="nav-item">📚 Digital E-Books</a>
+            <a href="#" class="nav-item">🛒 Online Store</a>
+        </div>
+    </aside>
+
+    <!-- Main Workspace Content -->
+    <main>
+        <div class="hero-section">
+            <div class="hero-tag">From the studio of Geremew</div>
+            <h1>Ideas and insights for the <em>modern</em> creator.</h1>
+            
+            <div class="subscribe-box">
+                <input type="email" placeholder="Your email address...">
+                <button type="button">Subscribe</button>
             </div>
-            <div class="service-card">
-                <h3>Telegram Channel</h3>
-                <p>Join the main workspace channel for real-time script updates, tool testing, and technical announcements.</p>
-                <a href="https://t.me/geremewh" class="card-link" target="_blank">Join Channel &rarr;</a>
-            </div>
-            <div class="service-card">
-                <h3>Digital E-Books</h3>
-                <p>Browse detailed step-by-step guides, technical instruction books, and digital culinary publications.</p>
-                <a href="#" class="card-link">Coming Soon &rarr;</a>
-            </div>
-            <div class="service-card">
-                <h3>Online Store</h3>
-                <p>Get instant access to live automated scripts, premium assets, templates, and digital products.</p>
-                <a href="#" class="card-link">Coming Soon &rarr;</a>
-            </div>
+            <div class="notice-text">No spam. Unsubscribe at any time.</div>
         </div>
 
-        <h2>Let's Work Together</h2>
-        <p class="subtitle">Have a professional project or custom tool idea in mind? Let's build it right.</p>
-        <a href="https://t.me/geremewh" class="btn" target="_blank">Get In Touch</a>
-    </div>
+        <div class="filter-container">
+            <button class="chip active">All Projects</button>
+            <button class="chip">Automation</button>
+            <button class="chip">Design</button>
+            <button class="chip">E-Books</button>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="content-grid">
+            <a href="https://www.youtube.com/@docmentary-o6r" target="_blank" class="grid-card">
+                <div class="card-preview" style="background-color: #ebdcd0;">YouTube Channel</div>
+                <div class="card-body">
+                    <h4>Production Videography</h4>
+                    <p>Detailed technical documentaries, hospital tech applications, and tailored voiceover creation.</p>
+                </div>
+            </a>
+
+            <a href="https://t.me/geremewh" target="_blank" class="grid-card">
+                <div class="card-preview" style="background-color: #e2e8f0;">Telegram Channel</div>
+                <div class="card-body">
+                    <h4>Scripts & Live Automation</h4>
+                    <p>Real-time ecosystem updates, active tool scripts, and centralized developer communication.</p>
+                </div>
+            </a>
+
+            <a href="#" class="grid-card">
+                <div class="card-preview" style="background-color: #e2ede8;">Digital Assets</div>
+                <div class="card-body">
+                    <h4>E-Books & Publications</h4>
+                    <p>Comprehensive step-by-step instruction assets, textbook structures, and technical guide files.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
 </body>
 </html>
